@@ -25,7 +25,7 @@ unsigned long g_total_files_size = -1;
 static download_context s_QdlContext;
 download_context *QdlContext = &s_QdlContext;
 
-extern void dbg_time (const char *fmt, ...);
+extern "C" void dbg_time (const char *fmt, ...);
 
 extern "C" int fastboot_main(int argc, char **argv);
 extern "C" int firehose_main_entry(int argc, char **argv);
