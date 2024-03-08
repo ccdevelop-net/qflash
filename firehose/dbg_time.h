@@ -1,6 +1,8 @@
 #ifndef DBG_TIME_H
 #define DBG_TIME_H
 
+#include <stdarg.h>
+
 #include <sys/time.h>
 #include <sys/sysinfo.h>
 
