@@ -456,7 +456,7 @@ int checkCPU()
 }
 
 
-#ifdef 1
+#if 1
 int fastboot_main(int argc, char **argv)
 #else
 int main(int argc, char **argv)
