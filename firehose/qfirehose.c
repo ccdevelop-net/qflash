@@ -10,14 +10,15 @@
 #include <time.h>
 #include <sys/time.h>
 
-#include "dbg_time.h"
+extern void dbg_time (const char *fmt, ...);
+
 
 int sahara_main(const char *firehose_dir);
 int firehose_main (const char *firehose_dir);
 int qusb_find_ec20(int *idVendor, int *idProduct, int *interfaceNum);
 
 #define error_return()  do {dbg_time("%s %s %d fail\n", __FILE__, __func__, __LINE__); return __LINE__; } while(0)
-#if 0
+#if 1
 int firehose_main_entry(int argc, char* argv[]){
 #else
 int main(int argc, char *argv[]) {

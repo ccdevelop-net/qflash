@@ -34,7 +34,7 @@ NDK_OUT=out
 
 all: qfastboot qfirehose
 	$(CROSS_COMPILE)g++ $(CFLAGS) -g -c -DPROGRESS_FILE_FAETURE -DFIREHOSE_ENABLE tinystr.cpp tinyxml.cpp tinyxmlerror.cpp tinyxmlparser.cpp md5.cpp at_tok.cpp atchannel.cpp ril-daemon.cpp download.cpp file.cpp os_linux.cpp serialif.cpp quectel_log.cpp quectel_common.cpp quectel_crc.cpp
-	$(CROSS_COMPILE)g++ *.o -lrt -lpthread -o QFlash
+	$(CROSS_COMPILE)g++ *.o fastboot/*.o firehose/*.o -lrt -lpthread -o QFlash
 
 debug: clean qfastboot qfirehose
 	$(CROSS_COMPILE)g++ -g -c -DDEBUG -DPROGRESS_FILE_FAETURE -DFIREHOSE_ENABLE tinystr.cpp tinyxml.cpp tinyxmlerror.cpp tinyxmlparser.cpp md5.cpp at_tok.cpp atchannel.cpp ril-daemon.cpp download.cpp file.cpp os_linux.cpp serialif.cpp quectel_log.cpp quectel_common.cpp quectel_crc.cpp
