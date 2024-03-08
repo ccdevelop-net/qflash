@@ -25,6 +25,7 @@ unsigned long g_total_files_size = -1;
 static download_context s_QdlContext;
 download_context *QdlContext = &s_QdlContext;
 
+extern void dbg_time (const char *fmt, ...);
 
 extern "C" int fastboot_main(int argc, char **argv);
 extern "C" int firehose_main_entry(int argc, char **argv);
@@ -309,7 +310,7 @@ static const char* platfrom2str(module_platform_t t)
 		case platform_9x06:
 			return "9X06";
 		case platform_9x07:
-			return "9X07";
+			return "9X07";
 		case platform_9x45:
 			return "9X45";
 		case platform_unknown:
@@ -365,7 +366,8 @@ int qdl_pre_download(download_context *ctx_ptr) {
     		dbg_time("unknown upgrade method, please contact Quectel\n");
     		break;
     	}
-    }
+    }
+
 err_exit:    
 	qdl_post_download(ctx_ptr, result);
 	return result == 1 ? 0 : 1;
