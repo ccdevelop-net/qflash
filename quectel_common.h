@@ -33,6 +33,7 @@ void strToUpper(char* src);
 int detect_adb();
 int detect_diag_port();
 int detect_diag_port(char **diag_port);
+int detect_at_port(char **at_port);
 int detect_modem_port(char **modem_port);
 
 int wait_diag_port_disconnect(int timeout /*s*/);
