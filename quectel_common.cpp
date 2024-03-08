@@ -231,6 +231,11 @@ static int  CreateDir(const   char   *sPathName) {
 int detect_diag_port(char **diag_port) {
     return ttyusb_dev_detect(diag_port, 0);
 }
+
+int detect_at_port(char **modem_port) {
+    return ttyusb_dev_detect(modem_port, 2);
+}
+
 int detect_modem_port(char **modem_port) {
     return ttyusb_dev_detect(modem_port, 3);
 }

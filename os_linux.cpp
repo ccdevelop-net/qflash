@@ -290,7 +290,7 @@ static int os_ready(download_context *ctx_ptr)
 		}
     }else
     {
-    	if(detect_modem_port(&ctx_ptr->modem_port) == 0)
+    	if(detect_at_port(&ctx_ptr->modem_port) == 0)
 		{		
 			dbg_time("Auto detect Quectel modem port = %s\n", ctx_ptr->modem_port);
 			return 0;
