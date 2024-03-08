@@ -10,8 +10,7 @@
 #include <time.h>
 #include <sys/time.h>
 
-extern void dbg_time (const char *fmt, ...);
-
+#include "dbg_time.h"
 
 int sahara_main(const char *firehose_dir);
 int firehose_main (const char *firehose_dir);
