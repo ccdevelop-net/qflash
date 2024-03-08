@@ -419,7 +419,7 @@ void usage()
 
 extern int writeFile(double updatePercent);
 int main(int argc, char *argv[]) {
-    extern proto_name_t *proto_list;
+    //extern proto_name_t *proto_list;
 	int auto_detect_diag_port = 1;
 	double start_time, end_time;
 	//need_check_fw_version = 0;	
