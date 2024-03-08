@@ -71,18 +71,4 @@ clean_fastboot()
     cd $dir_fastboot && make clean && cd ..
 }
 
-if [[ $1 == "build_firehose" ]];
-then
-    build_firehose
-elif [[ $1 == "clean_firehose" ]];
-then
-    clean_firehose
-elif [[ $1 == "build_fastboot" ]];
-then
-    build_fastboot
-elif [[ $1 == "clean_fastboot" ]];
-then
-    clean_fastboot
-else
-    echo "wrong parameter"
-fi
+$1
