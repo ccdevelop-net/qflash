@@ -560,7 +560,7 @@ int handle_openmulti(uint32 size,unsigned char* data) {
 
 /******pkt_write_multi_image*******/
 void pkt_write_multi_image(uint32 addr, unsigned char*data, uint16 size) {
-    unsigned char parameter[4] = {(unsigned char)(addr)&0xff, (unsigned char)(addr>>8)&0xff, (unsigned char)(addr>>16)&0xff, (unsigned char)(addr>>24)&0xff};
+    unsigned char parameter[4] = { (unsigned char)(addr & 0xff), (unsigned char)((addr >> 8) & 0xff), (unsigned char)((addr >> 16) & 0xff), (unsigned char)((addr >> 24) & 0xff) };
     compose_packet(0x07, parameter, 4, data, size);
     compute_reply_crc();
 }

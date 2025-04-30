@@ -561,7 +561,7 @@ int firehose_main (const char *firehose_dir) {
         const struct fh_cmd *fh_cmd = &fh_cmd_table[x];
         
         if (strstr(fh_cmd->cmd.type, "program")) {
-redo1:        
+//redo1:        
             fh_send_cmd(fh_cmd);
             if (fh_wait_response_cmd(&fh_rx_cmd, 5000) != 0) {
                 dbg_time("fh_wait_response_cmd fail\n");
@@ -576,7 +576,7 @@ redo1:
                 error_return();
                 //goto redo1;
              }
-redo2:             
+//redo2:             
 			 //usleep(1000);
              if (fh_send_rawmode_image(fh_cmd)) {
                 dbg_time("fh_send_rawmode_image fail\n");

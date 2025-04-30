@@ -62,7 +62,7 @@ static inline int badname(const char *name) {
 
 static void quectel_find_usb_device(struct ec20_usb_device *udev) {
     const char *base = "/dev/bus/usb";
-    char busname[64], devname[64];
+    char busname[300], devname[600];
     DIR *busdir , *devdir ;
     struct dirent *de;
     int fd ;

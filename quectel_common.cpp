@@ -60,7 +60,7 @@ int is_emergency_diag_port() {
         while((ent = readdir(pDir)) != NULL) {
             struct dirent* subent = NULL;
             DIR *psubDir;
-            char subdir[255];
+            char subdir[550];
             char dev[255];
             char idVendor[4 + 1] = {0};
             char idProduct[4 + 1] = {0};
@@ -121,7 +121,7 @@ static int ttyusb_dev_detect(char** pp_diag_port, int interface) {
         while((ent = readdir(pDir)) != NULL) {
             struct dirent* subent = NULL;
             DIR *psubDir;
-            char subdir[255];
+            char subdir[600];
             char dev[255];
             char idVendor[4 + 1] = {0};
             char idProduct[4 + 1] = {0};
@@ -244,14 +244,14 @@ int detect_adb() {
     int re = 0;
     const char* base = "/sys/bus/usb/devices";
     struct dirent *de;
-    char busname[64], devname[64];
+    char busname[300], devname[600];
     int fd;
     int writable;
     int n;
     DIR *busdir, *devdir;
     char desc[1024];
     char busnum[64],devnum[64],devmajor[64],devminor[64];
-    char buspath[128],devpath[128];
+    char buspath[512],devpath[255];
 
     busdir = opendir(base);
     if(busdir == 0)
@@ -657,8 +657,8 @@ int get_product_model(char ** product_model) {
         while((ent = readdir(pDir)) != NULL) {
             struct dirent* subent = NULL;
             DIR *psubDir;
-            char subdir[255];
-            char dev[255];
+            char subdir[600];
+            char dev[600];
             char idVendor[4 + 1] = {0};
             char product[255 + 1] = {0};
             char number[10] = {0};

@@ -434,7 +434,7 @@ static inline int badname(const char *name) {
 static struct ql_usb_device ql_device;
 static void quectel_find_usb_device(struct ql_usb_device *udev) {
     const char *base = "/dev/bus/usb";
-    char busname[64], devname[64];
+    char busname[400], devname[700];
     DIR *busdir , *devdir ;
     struct dirent *de;
     int fd ;

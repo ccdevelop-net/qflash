@@ -171,8 +171,9 @@ static bool sahara_rx_data(size_t bytes_to_read) {
     };
 
     if (0 == bytes_to_read) {
-        if (false == port_rx_data(sahara_data.rx_buffer, sahara_data.max_ram_dump_read, &temp_bytes_read)) 
+        if (false == port_rx_data(sahara_data.rx_buffer, sahara_data.max_ram_dump_read, &temp_bytes_read)) { 
             return false;
+        }
         
             command_packet_header = (sahara_packet_header *) sahara_data.rx_buffer;
             dbg(LOG_INFO, "Read %zd bytes, Header indicates command %d and packet length %d bytes", temp_bytes_read,command_packet_header->command,command_packet_header->length);            
@@ -412,8 +413,8 @@ static bool sahara_start(void) {
 
     uint32_t image_id = 0;
     struct timeval time_start, time_end;
-    unsigned char tx[] = {0x4b, 0x65, 0x01, 0x00, 0x54, 0x0f, 0x7e};
-	unsigned char rx[] = {0x4b, 0x65, 0x01, 0x00, 0x54, 0x0f, 0x7e};
+    //unsigned char tx[] = {0x4b, 0x65, 0x01, 0x00, 0x54, 0x0f, 0x7e};
+	//unsigned char rx[] = {0x4b, 0x65, 0x01, 0x00, 0x54, 0x0f, 0x7e};
 	//enter emegenery mode
 
     sahara_packet_header* sahara_cmd = (sahara_packet_header *)sahara_data.rx_buffer;
@@ -438,8 +439,9 @@ static bool sahara_start(void) {
           if (false == sahara_rx_data(0))	// size 0 means we don't know what to expect. So we'll just try to read the 8 byte header 
             {
                 sahara_tx_data(1);
-                if (false == sahara_rx_data(0))
+                if (!sahara_rx_data(0)) {
                     return false;
+                }
             }
 
           //Check if the received command is a hello command
@@ -675,8 +677,9 @@ static bool sahara_start(void) {
 
             dbg(LOG_EVENT, "STATE <-- SAHARA_WAIT_DONE_RESP");
             
-          if (false == sahara_rx_data(0))
+          if (!sahara_rx_data(0)) {
             return false;
+          }
 
             dbg(LOG_INFO, "image_tx_status = %d", sahara_done_resp->image_tx_status);
 
